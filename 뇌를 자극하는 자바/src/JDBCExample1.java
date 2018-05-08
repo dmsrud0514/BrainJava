@@ -1,6 +1,6 @@
 import java.sql.*; // 패키지
 
-class JDBCExample1 {
+class JDBC_Update {
     public static void main(String args[]) {
     	// 1단계 : DB 연결을 위한 커넥션 인터페이스
     	Connection conn = null;

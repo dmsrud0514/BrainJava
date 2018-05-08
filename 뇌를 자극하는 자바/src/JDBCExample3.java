@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-class JDBCExample2 {
+class JDBCExample3 {
     public static void main(String args[]) {
     	// 1단계 : DB 연결을 위한 커넥션 인터페이스
     	Connection conn = null;
@@ -15,11 +15,6 @@ class JDBCExample2 {
     	ResultSet rs = null;
     	// try ~ catch 문에서 DB연결 중에 예외가 발생하는지를 검사.
     	try {
-    		String jumincd = null; 
-    		String pname = null; 
-    		String gender = null;
-    		int age = 0;
-    		
         	// 2단계 : JDBC드라이버를 로드한다.
             Class.forName("com.mysql.jdbc.Driver");
             // 3단계 : 드라이버매니저 클래스는 getConnection메소드로 DB를 연결한다.
@@ -30,23 +25,32 @@ class JDBCExample2 {
             stmt = conn.createStatement();
             
             // DML SQL 쿼리 실행 후 결과를 저장
-            rs = stmt.executeQuery("select jumincd, pname, gender, age from person");
+            rs = stmt.executeQuery("select goodsInfoCode, goodsInfoName, price, maker from goodsinfo;");
             
-            System.out.println("          주민번호                 이름       성별    나이");
+            System.out.println("상품코드           상품명             가격            제조사");
             
             while(rs.next()) {
             
-            	jumincd = rs.getString(1);//rs.getString("jumincd");
-            	pname   = rs.getString(2);//rs.getString("pname");
-            	gender  = rs.getString(3);//rs.getString("gender");
-            	age        = rs.getInt(4);   //rs.getInt("age");
+            	String goodsInfoCode  = rs.getString(1);//rs.getString("goodsInfoCode");
+            	String goodsInfoName  = rs.getString(2);//rs.getString("goodsInfoName");
+            	int price             = rs.getInt(3);//rs.getString("price");
+            	String maker            = rs.getString(4);   //rs.getInt("maker");
+            	System.out.println(goodsInfoCode + "---" + goodsInfoName +  "---" + price +  "---" + maker);
             
-            	System.out.println(jumincd + "---" + pname +  "---" + gender +  "---" + age);
             }
+            rs = stmt.executeQuery("select cname, address, phoneno from custinfo;");
+            
+            System.out.println(" 이름                                        주소                            전화번호");
+            
+            while(rs.next()) {
+            	String cname  = rs.getString(1);//rs.getString("goodsInfoCode");
+            	String address  = rs.getString(2);//rs.getString("goodsInfoCode");
+            	String phoneno  = rs.getString(3);//rs.getString("goodsInfoCode");
+            	System.out.println(cname + "---" + address +  "---" + phoneno);
+            }
+            
             // 4단계 : DB연결을 종료한다.
             conn.close();
-            System.out.println("============================================================");
-            System.out.println(jumincd + "---" + pname +  "---" + gender +  "---" + age);
         }
         catch (ClassNotFoundException cnfe) {
             System.out.println("해당 클래스를 찾을 수 없습니다." + 
@@ -56,4 +60,4 @@ class JDBCExample2 {
             System.out.println(se.getMessage());
         }
     }
-}
+}    
