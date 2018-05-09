@@ -101,7 +101,7 @@ class JDBC_Person {
 //    		String jumincd = null; 
 //    		String pname   = null; 
 //    		String gender  = null; 
-    		int age = 0; 
+    		int age = 0;
     		// 2단계 : JDBC드라이버를 로드한다.
             Class.forName("com.mysql.jdbc.Driver");
             // 3단계 : 드라이버매니저 클래스는 getConnection메소드로 DB를 연결한다.
@@ -145,7 +145,7 @@ class JDBC_Person {
                              
             //System.out.println(jumincd + "---" + pname + "-------" + gender + "-------" + age); 
             } 
-            catch (ClassNotFoundException cnfe) { 
+    		catch (ClassNotFoundException cnfe) { 
             System.out.println("해당 클래스를 찾을 수 없습니다." +  
                                                 cnfe.getMessage()); 
             } 
