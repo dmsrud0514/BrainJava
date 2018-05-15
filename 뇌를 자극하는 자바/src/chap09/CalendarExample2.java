@@ -20,9 +20,8 @@ public class CalendarExample2 {
 		Calendar calendar = new GregorianCalendar ();
 		TimeZone timeZone = TimeZone.getTimeZone("Eurpe/Madrid");
 		
-		
-		
-				
+--------------------------------------------------------------------
+¼±»ý´Ô ±êÇãºê ³»¿ë ¹Þ¾Æ¼­ Ãß°¡ ¿ä¸Á 5.14
 	}
 
 }
