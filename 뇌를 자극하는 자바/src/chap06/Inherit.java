@@ -1,7 +1,7 @@
 package chap06;
 
 // 슈퍼클래스, 부모클래스
-class Person{
+abstract class Person{
 	int money;
 	
 	public Person(){
