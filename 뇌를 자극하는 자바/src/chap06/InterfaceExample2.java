@@ -15,6 +15,8 @@ public class InterfaceExample2 {
 		arr[0] = new SeparateVolume("883ㅇ326ㅍ2", "푸코의 진자", "에코");
 		arr[1] = new SeparateVolume("609.2ㄱ428ㅅ", "서양미술사", "곰브리치");
 		arr[2] = new AppCDInfo ("2002-1742", "XML을 위한 자바 프로그래밍");
+		
+		
 		System.out.println("arr");
 		checkOutAll (arr, "윤지혜", "20060315");
 		}
